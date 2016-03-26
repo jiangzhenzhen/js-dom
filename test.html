@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <title>never-online's website</title>
+    <script>
+        window.onload=function(){
+
+            function myGetElementById (id) {
+                var nodeRoot = document; //这个是根结点
+                var nodeHTML = nodeRoot.childNodes[0]; //这个是html结点
+                var nodeBody = nodeHTML.childNodes[1]; //body结点
+                var bodyChild = nodeBody.childNodes; //body的孩子
+                for (var i=0; i< bodyChild.length; i++) { //简单的遍历（指body的孩子下的深度为1)
+                    if (bodyChild[i].id==id)
+                        return bodyChild[i];
+                }
+                return null;
+            }
+            function TestGetElementById (id) {
+                var node = myGetElementById(id);
+                if (node!=null) {
+                    alert("找到结点 "+id+"!");
+                    alert(node.childNodes[0].data);
+                } else {
+                    alert("没有找到结点 "+id+".");
+                }
+            }
+        };
+
+
+    </script>
+</head>
+<body>
+<div id="aTestNode"></div>
+<div id="textNode">tutorial of DHTML and javascript programming</div>
+<input onclick="TestGetElementById('textNode')" type="button" value="change"/>
+
+</body>
+</html>

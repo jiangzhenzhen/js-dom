@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        window.onload = function(){
+            var oUl = document.getElementById('oul');
+
+            //childNodes 的类型不同，要先判断是不是元素节点再设置样式。
+            //除了可以使用childNodes[i],还可以使用childNodes.item(i);
+
+            for(var i=0;i<oUl.childNodes.length;i++){
+                if(oUl.childNodes[i].nodeType == 1){
+                    oUl.childNodes[i].style.background = "lightblue";
+                }
+
+
+            }
+            alert(oUl.childNodes[2].data);
+
+//            等价于
+            //children 的类型是元素型节点，所以可以直接设置样式。
+//            for(var i=0;i<oUl.children.length;i++){
+//                oUl.children[i].style.background = "lightgreen";
+//            }
+        }
+    </script>
+</head>
+<body>
+<ul id="oul">
+    <li>hello1</li>
+    <li>hello2</li>
+    <li>hello3</li>
+    <li>hello4</li>
+    <li>hello5</li>
+</ul>
+</body>
+</html>

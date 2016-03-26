@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        window.onload=function(){
+
+
+            function aa(id){
+                alert(id);
+                if(id=="box"){
+                    return id;
+                }else{
+                    return null;
+                }
+
+            }
+
+            function xx(id){
+                aa(id);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="box">123</div>
+    <input type="button" onclick="xx('box')" value="按钮">
+</body>
+</html>

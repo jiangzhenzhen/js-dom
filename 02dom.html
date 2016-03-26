@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        window.onload = function(){
+
+
+//        元素.firstChild : 只读 属性 第一个子节点
+//        标准下：firstChild会包含文本类型的节点
+//        非标准下：只包含元素节点
+
+//        元素.firstElementChild : 只读 属性 标准下获取第一个元素类型的子节点
+            var oUl = document.getElementById('oul');
+            alert(oUl.firstChild);
+            alert(oUl.firstElementChild);
+
+//            if(oUl.firstElementChild){
+//                oUl.firstElementChild.style.background = "gold";
+//            }else {
+//                oUl.firstChild.style.background = 'gold';
+//            }
+            var First = oUl.firstElementChild || oUl.firstChild;
+            First.style.background = 'lightgreen';
+            var Last = oUl.lastElementChild || oUl.lastChild;
+            Last.style.background = 'cyan';
+            var Next = First.nextElementSibling || First.nextSibling;
+            Next.style.background = 'purple';
+            var Privious = Last.previousElementSibling || Last.previousSibling;
+            Privious.style.background = 'blue';
+        }
+    </script>
+</head>
+<body>
+<ul id="oul" style="border:red solid 1px">
+    <li>hello1</li>
+    <li>hello2</li>
+    <li>hello3</li>
+    <li>hello4</li>
+    <li>hello5</li>
+</ul>
+
+</body>
+</html>

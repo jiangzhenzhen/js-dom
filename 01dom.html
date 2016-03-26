@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function() {
+
+            // Dom中定义的一个属性:childNodes  (包含的子节点的集合)
+            // 通过对象进行调用
+
+            var oUl = document.getElementById('ul1');
+//            for (var i=0; i<oUl.childNodes.length; i++) {
+//
+////                先判断是不是元素节点再添加属性
+//                if ( oUl.childNodes[i].nodeType == 1 ) {
+//                    oUl.childNodes[i].style.background = 'gold';
+//                }
+//
+//            }
+
+//             元素.children : 只读 属性 子节点列表集合
+//             标准下：只包含元素类型的节点
+//             非标准下：只包含元素类型的节点(ie7以下)
+//
+
+            //alert( oUl.children.length );
+            //想操作元素属性不需要判断节点类型
+
+            for (var i=0; i<oUl.children.length; i++) {
+                    oUl.children[i].style.background = 'purple';
+
+            }
+
+             /*元素.childNodes : 只读 属性 子节点列表集合
+             标准下：包含了文本和元素类型的节点，也会包含非法嵌套的子节点
+             非标准下：只包含元素类型的节点，ie7以下不会包含非法嵌套子节点
+
+             childNodes只包含一级子节点，不包含后辈孙级以下的节点
+
+             DOM节点的类型有很多种	12种
+
+             元素.nodeType : 只读 属性 当前元素的节点类型（元素属性列表集合）
+
+             元素节点	:	1
+             属性节点	:	2
+             文本节点 :	3
+             */
+
+            alert(oUl.childNodes.length);           //9
+            var arrayofNode = Array.prototype.slice.call(oUl.childNodes,0);  //在ie8及以下无法识别
+            alert(arrayofNode);
+
+            // 这就是说：Array.prototype.slice.call(arguments,0) 这句里，就是把 arguments 当做当前对象
+//            也就是说 要调用的是 arguments 的slice 方法，后面的 参数 0 也就成了 slice 的第一个参数
+//            slice(0)就是获取所有为什么要这么调用 arguments 的slice 方法呢？就是因为 arguments 不
+//            是真的组数,typeof arguments==="Object" 而不是 "Array"它没有slice这个方法，通过这么
+//            Array.prototype.slice.call调用，JS的内部机制应该是 把arguments对象转化为Array因为
+//            Array.prototype.slice.call调用后，返回的是一个组数
+
+
+
+//            alert(oUl.nodeType);                           //1    元素节点	:	1
+//            alert(oUl.childNodes[0].nodeType);           //3     文本节点 :	3
+
+            //属性节点
+
+            // 元素.attributes : 只读 属性 属性列表集合
+
+//            alert( oUl.attributes.length );             //2     属性节点长度是2
+
+//            alert( oUl.attributes[0].nodeType );        //2    第0个属性的节点类型是属性节点
+
+//            alert( oUl.attributes[1].name );            //id   弹出属性的名称
+
+        }
+    </script>
+</head>
+<body>
+    <ul id="ul1" style="border: 1px solid red;">
+        <li>11111</li>
+        <li>22222</li>
+        <li>33333</li>
+        <li>44444</li>
+        <p>123456789</p>
+    </ul>
+</body>
+</html>
+

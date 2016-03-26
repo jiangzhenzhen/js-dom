@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        var el = document.getElementById('div-01').firstChild;
+        alert(el);
+        var i = 1;
+
+        while (el) {
+            console.log(i + '. ' + el.nodeName);
+            el = el.nextSibling;
+            i++;
+        }
+    </script>
+</head>
+<body>
+<div id="div-01">
+    <p>123</p>
+</div>
+</body>
+</html>

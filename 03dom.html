@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        window.onload = function(){
+            var oA = document.getElementsByTagName('a');
+            for(var i=0;i<oA.length;i++){
+                oA[i].onclick = function(){
+                    this.parentNode.style.display ="none";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<ul>
+    <li><a href="javascript:;">1隐藏</a></li>
+    <li><a href="javascript:;">2隐藏</a></li>
+    <li><a href="javascript:;">3隐藏</a></li>
+    <li><a href="javascript:;">4隐藏</a></li>
+    <li><a href="javascript:;">5隐藏</a></li>
+</ul>
+</body>
+</html>
